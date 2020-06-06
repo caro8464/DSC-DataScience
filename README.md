@@ -10,3 +10,4 @@ name | link | status
 --- | --- | ---
 Phyton Excercise | https://github.com/caro8464/DSC-DataScience/tree/A3/ | complete
 Numpy Excercise | https://github.com/caro8464/DSC-DataScience/tree/A4/ | complete
+R and Jalia | https://github.com/caro8464/DSC-DataScience/tree/A5/ | complete

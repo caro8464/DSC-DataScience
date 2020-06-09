@@ -16,3 +16,5 @@ Tool Supported Data Cleaning | https://github.com/caro8464/DSC-DataScience/tree/
 Logistic Regression Exercise | https://github.com/caro8464/DSC-DataScience/tree/A9/ | 
 Instance Based Algs KNN | https://github.com/caro8464/DSC-DataScience/tree/A10/ | 
 Decision Trees | https://github.com/caro8464/DSC-DataScience/tree/A11/ | 
+Decision Trees | https://github.com/caro8464/DSC-DataScience/tree/A12/ | 
+Decision Trees | https://github.com/caro8464/DSC-DataScience/tree/A13/ | complete

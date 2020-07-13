@@ -14,7 +14,7 @@ R and Julia | https://github.com/caro8464/DSC-DataScience/tree/A5/ | complete
 Data Cleaning | https://github.com/caro8464/DSC-DataScience/tree/A6/ | complete
 Tool Supported Data Cleaning | https://github.com/caro8464/DSC-DataScience/tree/A7/ | complete
 Logistic Regression Exercise | https://github.com/caro8464/DSC-DataScience/tree/A9/ | complete
-Instance Based Algs KNN | https://github.com/caro8464/DSC-DataScience/tree/A10/ | 
+Instance Based Algs KNN | https://github.com/caro8464/DSC-DataScience/tree/A10/ | complete
 Decision Trees | https://github.com/caro8464/DSC-DataScience/tree/A11/ | 
 Clustering Excercise | https://github.com/caro8464/DSC-DataScience/tree/A12/ | 
 Spark Basics Excercise | https://github.com/caro8464/DSC-DataScience/tree/A13/ | complete

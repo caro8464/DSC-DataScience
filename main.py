@@ -42,3 +42,5 @@ for index,row in csv_to_clean.iterrows():
 csv_to_clean['id'] = csv_to_clean['id'].astype(int)    
 columns =  ["id", "full_name", "first_name", "last_name", "email", "gender", "age"]
 csv_to_clean.to_csv("dsm-beuth-edl-demodata-cleaned.csv", index=False, columns=columns)
+
+# KAGGLE CHALLENGE LINKS IN README

@@ -26,14 +26,13 @@ X_test = iris_data[indices[-training_samples:]]
 y_test = iris_labels[indices[-training_samples:]]
 
 # print(i_d.data[0:5])
-
 svc = LinearSVC()
 svc.fit(X_train, y_train)
 y_pred = svc.predict(X_test)
 iris_predict = svc.predict(unkown_iris)
 ir = svc._predict_proba_lr(unkown_iris)
-print("the flower is iris Virginica = {}".format(bool(iris_predict)))
-print("the chances that ist not Virginica and that it is respectively are {}".format(ir))
+print("the flower is iris {}".format(iris.target_names[iris_predict]))
+print("the chances that ist not Virginica and that it is respectively are:\nSetosa = {}\nVersicolor = {}\nVirginica = {}".format(100 * ir[0][0], 100 * ir[0][1], 100 * ir[0][2]))
 
 
 df = sns.load_dataset('iris')

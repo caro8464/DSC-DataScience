@@ -1,44 +1,55 @@
-import numpy as np
+# Import required packages
 import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
-def is_number(str):
-    try:
-        float(str)
-        return True
-    except ValueError:
-        pass
- 
-    try:
-        import unicodedata
-        unicodedata.numeric(str)
-        return True
-    except (TypeError, ValueError):
-        pass
- 
-    return False
+data = pd.read_csv('edlich-kmeans-A0.csv')
+# data.head(5)
+
+features = ['V1', 'V2', 'V3']
+print(data[features].describe())
+
+scaler = MinMaxScaler()
+scaler.fit(data)
+data_scaled = scaler.transform(data)
+
+added_squared_distances = []
+K = range(1,15)
+for k in K:
+    km = KMeans(n_clusters=k)
+    km = km.fit(data_scaled)
+    added_squared_distances.append(km.inertia_)
+
+# plt.plot(K, added_squared_distances, 'bx-')
+# plt.xlabel('k')
+# plt.ylabel('Sum_of_squared_distances')
+# plt.title('Elbow Method For Optimal k')
+# plt.show()
+
+# based on the plot the optimal K seems to be 5 taking the elbow-effect into account
+# A) the best K is 5
 
 
-csv_to_clean = pd.read_csv("dsm-beuth-edl-demodata-dirty.csv")
+X, y = make_blobs(n_samples = 100, n_features=3, centers=5)
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.scatter(X[:, 0], X[:, 1], X[:, 2])
 
-# minimize Dataredundancy by removing empty lines and duplicated ones
-csv_to_clean = csv_to_clean.drop_duplicates(subset=["email", "full_name"])
-csv_to_clean = csv_to_clean.dropna(how="all")
-csv_to_clean = csv_to_clean.reset_index()
+plt.show()
 
-for index,row in csv_to_clean.iterrows():
-  # set consecutive IDs beginning with 1, since some are missing set them too
-  csv_to_clean.at[index, 'id'] = index + 1
-  
-  # check for invalid age entries, only positive integers make sense 
-  if is_number(row.age):
-    age_as_int = int(row.age)
-    if age_as_int != abs(age_as_int):
-      # csv_to_clean.at[index, 'age'] = abs(age_as_int)
-      pass
-  else:
-    # If age is not a number set it to 0 to signal that change is needed but also be compatible to programmes expecting a number
-    csv_to_clean.at[index, 'age'] = 0
+km = KMeans(n_clusters=5)
+km = km.fit(X)
+labels = km.predict(X)
 
-csv_to_clean['id'] = csv_to_clean['id'].astype(int)    
-columns =  ["id", "full_name", "first_name", "last_name", "email", "gender", "age"]
-csv_to_clean.to_csv("dsm-beuth-edl-demodata-cleaned.csv", index=False, columns=columns)
+C = km.cluster_centers_
+
+fig = plt.figure()
+
+ax = Axes3D(fig)
+ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y)
+ax.scatter(C[:, 0], C[:, 1], C[:, 2], marker='*', c='#050505', s=1000)
+
+plt.show()

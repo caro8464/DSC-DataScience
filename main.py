@@ -36,7 +36,7 @@ for k in K:
 X, y = make_blobs(n_samples = 100, n_features=3, centers=5)
 fig = plt.figure()
 ax = Axes3D(fig)
-ax.scatter(X[:, 0], X[:, 1], X[:, 2])
+ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y)
 
 plt.show()
 
@@ -46,10 +46,15 @@ labels = km.predict(X)
 
 C = km.cluster_centers_
 
-fig = plt.figure()
+# prints our clustering vectors to the console
+for idx,vector in enumerate(C, start=1):
+    print("\nVector number {}: X={}, Y={}, Z={}" .format(idx, vector[0], vector[1], vector[2]))
 
+
+# now show our centers (clustering vectors) in the 3D graph
+fig = plt.figure()
 ax = Axes3D(fig)
 ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y)
-ax.scatter(C[:, 0], C[:, 1], C[:, 2], marker='*', c='#050505', s=1000)
+ax.scatter(C[:, 0], C[:, 1], C[:, 2], marker='.', c='#050505', s=1000)
 
 plt.show()

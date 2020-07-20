@@ -3,6 +3,9 @@ Every challenge gets it's own branch.
 Branches should be named after their designation `A3. Phyton Excercise` => `A3`
 this way it's easy to differentiate multiple codebases
 
+
+
+[Kaggle implementation](https://www.kaggle.com/carolinawehrmann/a9-linear-regression)
 solved with a support vector machine
 the flower in the forrest is in fact a iris virginica
 ## challenges
